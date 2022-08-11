@@ -1,7 +1,8 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { addItem } from '../store/actions/cart.actions'
 
 export const BreadDetailScreen = ({ route }) => {
 
