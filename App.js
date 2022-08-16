@@ -4,7 +4,7 @@ import AppLoading from 'expo-app-loading';
 import MainNavigation from './navigation';
 import { Provider } from 'react-redux'
 import { StatusBar } from 'expo-status-bar';
-import storeChanchito from './store'
+import store from './store'
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -16,10 +16,10 @@ export default function App() {
 
   if(!loaded) return <AppLoading />
 
-    return (
-      <Provider store={storeChanchito}>
-        <MainNavigation />
-      </Provider>
-    );
-  }
+  return (
+    <Provider store={store}>
+      <MainNavigation />
+    </Provider>
+  );
+}
 

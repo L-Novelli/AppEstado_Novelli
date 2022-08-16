@@ -6,16 +6,19 @@ import {CartItem} from '../components/CartItem';
 import React from 'react'
 
 const CartScreen = () => {
+  const dispatch = useDispatch()
+  const { items, total } = useSelector(store => store.cart)
+  console.log(items, 'soy items')
+  const handleConfirmCart = () => {
+    dispatch(confirmCart(items, total));
+  } 
+  const handlerDeleteItem = (id) => {
+    dispatch(removeItem(id))
+  }
 
-  const dispatch = useDispatch();
-  const items = useSelector(state => state.cart.items)
-  const total = useSelector(state => state.cart.items)
-
-  const handlerDeleteITem = (id) => dispatch(removeItem(id));
-
-  const renderItems = ({data}) => {
+  const renderItems = ({item}) => {
     return (
-      <CartItem item={data.item} onDelete={handlerDeleteITem} />
+      <CartItem item={item} onDelete={handlerDeleteItem} />
     )
   }
 
